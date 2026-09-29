@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+credenciales.txt
+db.sqlite3
+staticfiles/
+media/
+.vscode/
+.DS_Store
+*.log

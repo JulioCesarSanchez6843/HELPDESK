@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="mb-3">
+    Nuevo ticket
+</h3>
+
+<form
+    method="post"
+    class="col-md-7"
+>
+
+    {% csrf_token %}
+
+    {% include "_form_fields.html" with form=form %}
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+    >
+        Crear ticket
+    </button>
+
+    <a
+        href="{% url 'lista_tickets' %}"
+        class="btn btn-outline-secondary"
+    >
+        Cancelar
+    </a>
+
+</form>
+
+{% endblock %}

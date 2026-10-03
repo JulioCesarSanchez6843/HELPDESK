@@ -312,11 +312,6 @@ def nuevo_ticket(request):
         },
     )
 
-
-# -------------------------------------------------------------------
-# NOTIFICACIONES
-# -------------------------------------------------------------------
-
 @login_required
 def lista_notificaciones(request):
 

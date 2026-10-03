@@ -52,7 +52,6 @@ class TicketForm(BootstrapFormMixin, forms.ModelForm):
 
         self.fields["categoria"].required = False
 
-        # El área del usuario viene preseleccionada.
         if (
             usuario is not None
             and usuario.area_id
@@ -135,8 +134,6 @@ class TicketGestionForm(
             if ticket.cerrado_en is None:
                 ticket.cerrado_en = timezone.now()
         else:
-            # Si se vuelve a abrir o pasa a proceso,
-            # se elimina la fecha de cierre.
             ticket.cerrado_en = None
 
         if commit:

@@ -159,10 +159,6 @@ def registrar_gestion(
     por el ADMIN.
     """
 
-    # ---------------------------------------------------------------
-    # CAMBIO DE ESTADO
-    # ---------------------------------------------------------------
-
     if ticket.estado != antes["estado"]:
 
         anterior = dict(
@@ -220,9 +216,6 @@ def registrar_gestion(
                 actor,
             )
 
-    # ---------------------------------------------------------------
-    # CAMBIO DE CATEGORÍA
-    # ---------------------------------------------------------------
 
     if (
         ticket.categoria_id

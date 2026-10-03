@@ -7,5 +7,4 @@ INSTALLED_APPS += [
     "django.contrib.admindocs",
 ]
 
-# Validadores de contraseña relajados SOLO para desarrollo/pruebas
 AUTH_PASSWORD_VALIDATORS = []

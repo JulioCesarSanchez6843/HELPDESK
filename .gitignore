@@ -10,3 +10,4 @@ media/
 .vscode/
 .DS_Store
 *.log
+.gitignore

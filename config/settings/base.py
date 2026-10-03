@@ -4,9 +4,9 @@ Los valores sensibles (password, secret key) se leen del archivo .env,
 NUNCA se escriben directamente aquí (buena práctica de seguridad).
 """
 from pathlib import Path
+import dj_database_url
 from decouple import config, Csv
 
-# BASE_DIR apunta a la raíz del proyecto (2 niveles arriba de este archivo)
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = config("SECRET_KEY", default="dev-key-cambia-en-produccion")
@@ -69,6 +69,10 @@ DATABASES = {
     }
 }
 
+_database_url = config("DATABASE_URL", default="")
+if _database_url:
+    DATABASES["default"] = dj_database_url.parse(_database_url, conn_max_age=600)
+
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -84,7 +88,6 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-# Solo se registra si la carpeta existe (evita el warning staticfiles.W004)
 STATICFILES_DIRS = [BASE_DIR / "static"] if (BASE_DIR / "static").exists() else []
 STATIC_ROOT = BASE_DIR / "staticfiles"
 

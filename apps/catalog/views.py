@@ -7,8 +7,6 @@ from apps.accounts.decorators import admin_required
 from .forms import AreaForm, CategoriaForm, PuestoForm
 from .models import Area, Categoria, Puesto
 
-# Un solo conjunto de vistas sirve para los tres catálogos.
-# "relaciones" = nombres de los related_name que usan ese registro (para saber si está en uso).
 CATALOGOS = {
     "areas": {
         "modelo": Area, "form": AreaForm, "titulo": "Áreas", "singular": "área",

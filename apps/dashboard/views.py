@@ -17,7 +17,6 @@ def reportes(request):
     en_proceso = Ticket.objects.filter(estado=Ticket.Estado.EN_PROCESO).count()
     cerrados = Ticket.objects.filter(estado=Ticket.Estado.CERRADO).count()
 
-    # Tiempo promedio de resolución: solo tickets cerrados que tengan fecha de cierre.
     promedio = Ticket.objects.filter(
         estado=Ticket.Estado.CERRADO, cerrado_en__isnull=False
     ).aggregate(
@@ -27,7 +26,6 @@ def reportes(request):
 
     porcentaje_resueltos = round((cerrados / total) * 100) if total else 0
 
-    # Actividad real de los últimos 7 días (tickets creados por día).
     hoy = timezone.localdate()
     dias = [hoy - timedelta(days=i) for i in range(6, -1, -1)]
     por_dia = dict(

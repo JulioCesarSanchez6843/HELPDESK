@@ -16,8 +16,6 @@ urlpatterns = [
         name="nuevo_ticket",
     ),
 
-    # Las rutas de notificaciones van antes de <int:pk>
-    # para evitar conflictos con la ruta del detalle del ticket.
     path(
         "notificaciones/",
         views.lista_notificaciones,
